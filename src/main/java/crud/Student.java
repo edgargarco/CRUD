@@ -1,16 +1,16 @@
 package crud;
 
-public class Estudiante {
+public class Student {
     private String student_id;
     private String name;
     private String last_name;
     private String tel;
 
-    public Estudiante(){
+    public Student(){
 
     }
 
-    public Estudiante(String student_id, String name, String last_name, String tel) {
+    public Student(String student_id, String name, String last_name, String tel) {
         this.student_id = student_id;
         this.name = name;
         this.last_name = last_name;
