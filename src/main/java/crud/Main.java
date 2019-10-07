@@ -69,19 +69,35 @@ public class Main {
         post("/crud",(request,response)->{
                 Student student = new Student(request.queryParams("id_student"),request.queryParams("name"),
                         request.queryParams("last_name"),request.queryParams("phone"));
-            System.out.println(student.getName());
-            System.out.println(student.getLast_name());
-            System.out.println(student.getStudent_id());
-            System.out.println(student.getTel());
 
             Session session = request.session(true);
-
             insertStudent(student);
             session.attribute("student", list_Student);
             values.put("student",list_Student);
+            response.redirect("/");
 
+            return "";
+        });
 
-
+        post("/update",(request,response)->{
+            int aux_id = Integer.parseInt(request.queryParams("id"));
+            System.out.println(aux_id);
+            for (int i =0;i<list_Student.size();i++){
+                if(list_Student.get(i).getId() == aux_id){
+                    System.out.println("->"+request.queryParams("student_id"));
+                    System.out.println("->"+request.queryParams("name"));
+                    System.out.println("->"+request.queryParams("last_name"));
+                    System.out.println("->"+request.queryParams("tel"));
+                    list_Student.get(i).setStudent_id(request.queryParams("student_id"));
+                    list_Student.get(i).setName(request.queryParams("name"));
+                    list_Student.get(i).setLast_name(request.queryParams("last_name"));
+                    list_Student.get(i).setTel(request.queryParams("tel"));
+                    System.out.println(list_Student.get(i).getName());
+                    System.out.println(list_Student.get(i).getLast_name());
+                    System.out.println(list_Student.get(i).getStudent_id());
+                    System.out.println(list_Student.get(i).getTel());
+                }
+            }
             response.redirect("/");
 
             return "";
@@ -117,7 +133,11 @@ public class Main {
         id++;
         student.setId(id);
         list_Student.add(student);
+    }
 
+    public static Student searchElement(int id){
+
+        return null;
     }
 
 

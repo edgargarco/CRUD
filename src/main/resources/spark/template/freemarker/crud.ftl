@@ -15,6 +15,15 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+
+
 </head>
 
 <body>
@@ -23,7 +32,7 @@
 <head>
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color lighten-1">
-        <a class="navbar-brand" href="#"></a>
+        <a class="navbar-brand" href="#">CRUD DATABASE FOR STUDENTS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
                 aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -105,44 +114,28 @@
         <div class="col-md-10">
             <table class="table table-bordered table-striped" id="tabledit">
                 <thead>
-                    <tr>
-                        <th scope="col">ID</th>
+                <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Matricula</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Telefono</th>
+                    <th scope="col">Editar/Borrar</th>
                 </tr>
-
-
-
                 </thead>
                 <tbody>
-                    <#list student as k>
-                          <tr>
-                              <th scope="row">${k.id}</th>
-                            <th scope="row">${k.name}</th>
-                            <td>${k.student_id}</td>
-                            <td>${k.last_name}</td>
-                            <td>${k.tel}</td>
-                        </tr>
 
-                    </#list>
-
-
-
+                <#list student as k>
                     <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td scope="row">${k.id}</td>
+                        <td scope="row">${k.student_id}</td>
+                        <td>${k.name}</td>
+                        <td>${k.last_name}</td>
+                        <td>${k.tel}</td>
+                        <td class="modal_form"></td>
                     </tr>
 
-
-
-
-
-
-
+                </#list>
 
                 </tbody>
             </table>
@@ -157,6 +150,7 @@
 
 <!-- SCRIPTS -->
 <!-- JQuery -->
+<script type="text/javascript" src="Myjquery.js"></script>
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="js/popper.min.js"></script>
