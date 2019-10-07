@@ -5,6 +5,7 @@ public class User {
     private String password;
     private String email;
 
+
     public User() {
 
     }
@@ -38,4 +39,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }

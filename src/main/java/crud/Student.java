@@ -3,10 +3,13 @@ package crud;
 import java.util.ArrayList;
 
 public class Student {
+
+    private int id;
     private String student_id;
     private String name;
     private String last_name;
     private String tel;
+
 
 
     public Student(){
@@ -18,8 +21,12 @@ public class Student {
         this.name = name;
         this.last_name = last_name;
         this.tel = tel;
+        this.id = 0;
 
     }
+    public int getId() {return id; }
+
+    public void setId(int id) { this.id = id; }
 
 
 

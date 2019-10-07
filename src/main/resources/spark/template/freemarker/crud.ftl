@@ -23,7 +23,7 @@
 <head>
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color lighten-1">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
                 aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
                 <li class="nav-item avatar">
                     <a class="nav-link p-0" href="#">
                         <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="rounded-circle z-depth-0"
-                             alt="avatar image" height="35"><span>  Bienvenido! ${user.user}</span>
+                             alt="avatar image" height="35"><span>  Bienvenido! ${usuario.user}</span>
                     </a>
                 </li>
             </ul>
@@ -105,14 +105,30 @@
         <div class="col-md-10">
             <table class="table table-bordered table-striped" id="tabledit">
                 <thead>
-                <tr>
+                    <tr>
+                        <th scope="col">ID</th>
                     <th scope="col">Matricula</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Telefono</th>
                 </tr>
+
+
+
                 </thead>
                 <tbody>
+                    <#list student as k>
+                          <tr>
+                              <th scope="row">${k.id}</th>
+                            <th scope="row">${k.name}</th>
+                            <td>${k.student_id}</td>
+                            <td>${k.last_name}</td>
+                            <td>${k.tel}</td>
+                        </tr>
+
+                    </#list>
+
+
 
                     <tr>
                         <th scope="row"></th>
