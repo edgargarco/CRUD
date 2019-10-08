@@ -45,6 +45,7 @@ public class Main {
         } );
 
 
+
         post("/autenticar",(request,reponse)->{
 
 
@@ -67,14 +68,38 @@ public class Main {
             return "";
         });
         post("/crud",(request,response)->{
+            if(request.queryParams("id_student").equalsIgnoreCase("") || request.queryParams("name").equalsIgnoreCase("")
+            || request.queryParams("last_name").equalsIgnoreCase("") || request.queryParams("phone").equalsIgnoreCase("")){
+                response.redirect("/");
+            }else{
                 Student student = new Student(request.queryParams("id_student"),request.queryParams("name"),
                         request.queryParams("last_name"),request.queryParams("phone"));
 
-            Session session = request.session(true);
-            insertStudent(student);
-            session.attribute("student", list_Student);
-            values.put("student",list_Student);
+                Session session = request.session(true);
+                insertStudent(student);
+                for (int i = 0;i<list_Student.size();i++){
+                    System.out.println(list_Student.get(i).getId()+"->"+list_Student.get(i).getName());
+                }
+                session.attribute("student", list_Student);
+                values.put("student",list_Student);
+                response.redirect("/");
+
+            }
+
+
+            return "";
+        });
+
+        post("/delete",(request,response)->{
+            int aux_id = Integer.parseInt(request.queryParams("id"));
+            System.out.println(aux_id);
+            Student aux_student = searchStudent(aux_id);
+            System.out.println(aux_student.getId());
+            aux_student.getName();
+            list_Student.remove(aux_student);
             response.redirect("/");
+
+
 
             return "";
         });
@@ -84,18 +109,18 @@ public class Main {
             System.out.println(aux_id);
             for (int i =0;i<list_Student.size();i++){
                 if(list_Student.get(i).getId() == aux_id){
-                    System.out.println("->"+request.queryParams("student_id"));
+                    /*System.out.println("->"+request.queryParams("student_id"));
                     System.out.println("->"+request.queryParams("name"));
                     System.out.println("->"+request.queryParams("last_name"));
-                    System.out.println("->"+request.queryParams("tel"));
+                    System.out.println("->"+request.queryParams("tel"));*/
                     list_Student.get(i).setStudent_id(request.queryParams("student_id"));
                     list_Student.get(i).setName(request.queryParams("name"));
                     list_Student.get(i).setLast_name(request.queryParams("last_name"));
                     list_Student.get(i).setTel(request.queryParams("tel"));
-                    System.out.println(list_Student.get(i).getName());
+                    /*System.out.println(list_Student.get(i).getName());
                     System.out.println(list_Student.get(i).getLast_name());
                     System.out.println(list_Student.get(i).getStudent_id());
-                    System.out.println(list_Student.get(i).getTel());
+                    System.out.println(list_Student.get(i).getTel());*/
                 }
             }
             response.redirect("/");
@@ -135,10 +160,19 @@ public class Main {
         list_Student.add(student);
     }
 
-    public static Student searchElement(int id){
+    public static Student searchStudent(int id){
+        Student aux_student=null;
+        for (int i=0;i<list_Student.size();i++){
+            System.out.println("ID"+i+"->"+list_Student.get(i).getId());
+            if (list_Student.get(i).getId() == id){
+                aux_student = list_Student.get(i);
+                return aux_student;
+            }
 
-        return null;
+        }
+        return aux_student;
     }
+
 
 
 

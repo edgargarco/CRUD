@@ -16,6 +16,23 @@ $(document).ready(function($){
         var result = col1+ '\n'+col2+ '\n'+col3+ '\n'+col4+ '\n'+col5;
         console.log(array);
         alert(array);
+        loadModal(array);
+
+
+
+
+    });
+    console.log(array);
+
+
+    var modal = '';
+    function loadButtom(){
+        modal+='<div class="btn-group" role="group" aria-label="Basic example"><button type="button" class="btn btn-warning btn-rounded" id="editButtom" data-toggle="modal" data-target="#modalLoginForm"><i class="fas fa-user-edit fa-1x"></i></button><button type="button" data-toggle="modal" class="btn btn-danger btn-rounded" data-target="#ModalDanger" id="deleteButtom"><i class="fas fa-trash-alt fa-1x"></i></button> </div>'
+        $(document).find('.modal_form').html(modal);
+    }
+    loadButtom();
+
+    function loadModal(array) {
         var modal =''
         modal += '<form action="/update" method="POST">'
         modal +='<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'
@@ -68,18 +85,83 @@ $(document).ready(function($){
         modal += '</form>'
         $(document).find('.modal_form').html(modal);
 
+    }
 
+    $('#tabledit tbody').on('click','#deleteButtom',function(){
+        var darray = [];
+
+        var curRow = $(this).closest('tr');
+        var col1 = curRow.find('td:eq(0)').text();
+        darray.push(col1);
+        var col2 = curRow.find('td:eq(1)').text();
+        darray.push(col2);
+        var col3 = curRow.find('td:eq(2)').text();
+        darray.push(col3);
+        var col4 = curRow.find('td:eq(3)').text();
+        darray.push(col4);
+        var col5 = curRow.find('td:eq(4)').text();
+        darray.push(col5);
+        var result = col1+ '\n'+col2+ '\n'+col3+ '\n'+col4+ '\n';
+        console.log(darray);
+        alert(darray);
+        loadModalDelete(darray);
 
     });
-    console.log(array);
+
+    function loadModalDelete(darray){
+        var deleteMod = ''
+        deleteMod+='<form action="/delete" method="post">'
+        deleteMod += '<!-- Central Modal Danger Demo--> <div class="modal fade right" id="ModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="t`rue">'
+        deleteMod+='<div class="modal-dialog modal-notify modal-danger modal-side modal-top-right" role="document">'
+        deleteMod+= '<div class="modal-content">'
+
+        deleteMod+='<div class="modal-header">'
+        deleteMod+='<p class="heading">ELIMINAR ESTUDIANTE</p>'
+        deleteMod+='<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="white-text">&times;</span></button>'
+        deleteMod+='</div>'
 
 
-    var modal = '';
-    function loadButtom(){
-        modal += '<div class="text-center"><a href="" class="btn btn-default btn-rounded mb-2" data-toggle="modal" id="editButtom" data-target="#modalLoginForm">Editar</a> </div>'
-        $(document).find('.modal_form').html(modal);
+        deleteMod+='<div class="modal-body">'
+        deleteMod+='<div class="row">'
+        deleteMod+='<div class="col-3">'
+        deleteMod+='<p></p>'
+        deleteMod+='<p class="text-center"><i class="fas fa-user-times fa-4x"></i></p>'
+        deleteMod+='</div>'
+
+        deleteMod+='<div class="col-9">'
+        deleteMod+= '<input type="hidden" id="defaultForm-email" class="form-control validate" value="'+darray[0]+'" name="id">'
+        deleteMod+='<p>Esta seguro de que desea eliminar al estudiante '+darray[2]+' '+darray[3]+'</p>'
+
+        deleteMod+='</div>'
+        deleteMod+='</div>'
+        deleteMod+='</div>'
+
+
+        deleteMod+='<div class="modal-footer justify-content-center">'
+        deleteMod+='<button type="submit" class="btn btn-danger btn-rounded">Si, Estoy Seguro!</button>'
+        deleteMod+='<button type="button" class="btn btn-warning btn-rounded">No</button>'
+        //deleteMod+='<a type="button" class="btn btn-danger">Si!Estoy seguro.<i class="far fa-gem ml-1 white-text"></i></a>'
+        //deleteMod+='<a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No</a>'
+        deleteMod+='</div>'
+        deleteMod+='</div>'
+
+        deleteMod+='</div>'
+        deleteMod+='</div>'
+        deleteMod+='</form>'
+        $(document).find('.modal_form').html(deleteMod);
+
+
     }
-    loadButtom();
-
 
 });
+
+function checkForm(){
+    var id = document.getElementById('id_student').value;
+    if (id == ""){
+        window.alert("Ingresa nombre del estudiante");
+        id.focus();
+        return false;
+    }
+    return true;
+
+}

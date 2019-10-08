@@ -22,6 +22,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 
 
 </head>
@@ -32,7 +33,7 @@
 <head>
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color lighten-1">
-        <a class="navbar-brand" href="#">CRUD DATABASE FOR STUDENTS</a>
+        <a class="navbar-brand" href="#"><i class="fab fa-accusoft"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
                 aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,7 +55,9 @@
 
 <main>
     <!--INSERT-->
-    <form action="/crud" method="POST">
+    <h3 class="head-titles-2">Registrar nuevo estudiante:</h3>
+
+    <form action="/crud" method="POST" name="insertStudent" onsubmit="return checkForm();">
         <div class="row">
 
             <div class="col-md-1"></div>
@@ -63,7 +66,7 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <i class="fas fa-id-badge prefix"></i>
-                    <input type="text" id="id_student" name="id_student" class="form-control" placeholder="Matricula:">
+                    <input type="text" id="id_student" name="id_student" class="form-control" placeholder="Matricula:" >
 
                 </div>
                 <!-- Material input -->
@@ -73,7 +76,7 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <i class="fas fa-signature prefix"></i>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Nombre:">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Nombre:" >
 
                 </div>
                 <!-- Material input -->
@@ -82,7 +85,7 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <i class="fas fa-signature prefix"></i>
-                    <input type="text" id="last_name" name="last_name"  class="form-control" placeholder="Apellido:">
+                    <input type="text" id="last_name" name="last_name"  class="form-control" placeholder="Apellido:" >
 
                 </div>
                 <!-- Material input -->
@@ -91,36 +94,39 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <i class="fas fa-phone prefix"></i>
-                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Telefono:">
+                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Telefono:" >
 
                 </div>
                 <!-- Material input -->
             </div>
 
-            <div class="col-md-2">
+
+            <div class="col-md-3">
+                <div class="md-form">
                 <button type="submit" class="btn btn-danger btn-rounded">Registrar</button>
+                </div>
             </div>
-            <div class="col-md-1"></div>
 
         </div>
     </form>
     <!--INSERT-->
-
+    <hr>
+    <h3 class="head-titles">Listado de estudiantes:</h3>
 
     <div class="row">
         <div class="col-md-1">
 
         </div>
         <div class="col-md-10">
-            <table class="table table-bordered table-striped" id="tabledit">
+            <table class="table table-bordered table-striped " id="tabledit">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Matricula</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Editar/Borrar</th>
+                    <th scope="col" class="th-sm">ID</th>
+                    <th scope="col" class="th-lg">Matricula</th>
+                    <th scope="col" class="th-lg">Nombre</th>
+                    <th scope="col" class="th-lg">Apellido</th>
+                    <th scope="col" class="th-lg">Telefono</th>
+                    <th scope="col" class="th-sm">Editar/Borrar</th>
                 </tr>
                 </thead>
                 <tbody>
