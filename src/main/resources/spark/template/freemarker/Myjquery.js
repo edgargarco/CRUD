@@ -1,5 +1,12 @@
 $(document).ready(function($){
     var array = [];
+
+    validateNumber(id_student);
+    validateLetters(named);
+    validateLetters(last_name);
+    validateNumber(phone);
+
+
     $('#tabledit tbody').on('click','#editButtom',function(){
         var curRow = $(this).closest('tr');
 
@@ -155,13 +162,37 @@ $(document).ready(function($){
 
 });
 
-function checkForm(){
-    var id = document.getElementById('id_student').value;
-    if (id == ""){
-        window.alert("Ingresa nombre del estudiante");
-        id.focus();
-        return false;
+    function validateNumber(id) {
+        $(id).bind("keypress", function (e) {
+            var keyCode = e.which ? e.which : e.keyCode
+
+            if (!(keyCode >= 48 && keyCode <= 57)) {
+                $(".error").css("display", "inline");
+                return false;
+            }else{
+                $(".error").css("display", "none");
+            }
+        });
+
     }
-    return true;
+
+function validateLetters(id) {
+    $(id).bind("keypress", function (e) {
+        var keyCode = e.which ? e.which : e.keyCode
+
+
+
+        if (!(keyCode >= 65 && keyCode <= 122) && (keyCode != 32 && keyCode !=0)) {
+
+            $(".error-name").css("display", "inline");
+            return false;
+        }else{
+            $(".error-name").css("display", "none");
+        }
+    });
 
 }
+
+
+
+

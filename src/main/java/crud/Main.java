@@ -50,12 +50,12 @@ public class Main {
 
 
             User user = new User(request.queryParams("usuario"),request.queryParams("password"));
-            if(user.getEmail().equals("edgar@hotmail.com") && user.getPassword().equals("123")){
+            if(user.getEmail().equals("edgar@hotmail.com") && user.getPassword().equals("123") || user.getEmail().equals("pepe@hotmail.com") && user.getPassword().equals("123")){
                 user.setUser("Edgar Garcia");
                 Session session = request.session(true);
 
                 session.attribute("user",user);
-                Student x = new Student("201613231", "edgar","pepe","9283");
+                Student x = new Student("20161143", "Edgar","Garcia","8293819028");
                 insertStudent(x);
 
                 values.put("student",list_Student);
@@ -99,8 +99,6 @@ public class Main {
             list_Student.remove(aux_student);
             response.redirect("/");
 
-
-
             return "";
         });
 
@@ -132,7 +130,7 @@ public class Main {
             Session session = request.session();
             User user = session.attribute("user");;
             values.put("usuario",user);
-//
+
 
             return renderFreemarker(values,"crud.ftl");
         });

@@ -22,6 +22,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+
     <link rel="stylesheet" href="styles.css">
 
 
@@ -56,8 +57,12 @@
 <main>
     <!--INSERT-->
     <h3 class="head-titles-2">Registrar nuevo estudiante:</h3>
+    <script>
 
-    <form action="/crud" method="POST" name="insertStudent" onsubmit="return checkForm();">
+    </script>
+
+
+    <form action="/crud" method="POST" name="insertStudent" onsubmit="">
         <div class="row">
 
             <div class="col-md-1"></div>
@@ -67,6 +72,7 @@
                 <div class="md-form">
                     <i class="fas fa-id-badge prefix"></i>
                     <input type="text" id="id_student" name="id_student" class="form-control" placeholder="Matricula:" >
+                    <span class="error" style="color: red; display: none">* Solo digitos del (0 - 9)</span>
 
                 </div>
                 <!-- Material input -->
@@ -76,7 +82,8 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <i class="fas fa-signature prefix"></i>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Nombre:" >
+                    <input type="text" id="named" name="name" class="form-control" placeholder="Nombre:"  >
+                    <span class="error-name" style="color: red; display: none">* Solo Letras</span>
 
                 </div>
                 <!-- Material input -->
@@ -85,7 +92,8 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <i class="fas fa-signature prefix"></i>
-                    <input type="text" id="last_name" name="last_name"  class="form-control" placeholder="Apellido:" >
+                    <input type="text" id="last_name" name="last_name"  class="form-control" placeholder="Apellido:"  required>
+                    <span class="error-name" style="color: red; display: none">* Solo Letras</span>
 
                 </div>
                 <!-- Material input -->
@@ -94,7 +102,8 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <i class="fas fa-phone prefix"></i>
-                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Telefono:" >
+                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Telefono:" required>
+                    <span class="error" style="color: red; display: none">* Solo digitos del (0 - 9)</span>
 
                 </div>
                 <!-- Material input -->
