@@ -47,7 +47,7 @@ $(document).ready(function($){
         modal += '<div class="modal-content">'
         modal+= '<div class="modal-header text-center">'
         modal += '<h4 class="modal-title w-100 font-weight-bold">Modificar Estudiante</h4>'
-        modal += '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'
+        modal += '<button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="window.location.reload();">'
         modal += ' <span aria-hidden="true">&times;</span>'
         modal += '</button>'
         modal += '</div>'
@@ -124,7 +124,7 @@ $(document).ready(function($){
 
         deleteMod+='<div class="modal-header">'
         deleteMod+='<p class="heading">ELIMINAR ESTUDIANTE</p>'
-        deleteMod+='<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="white-text">&times;</span></button>'
+        deleteMod+='<button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="window.location.reload();"><span aria-hidden="true" class="white-text">&times;</span></button>'
         deleteMod+='</div>'
 
 
@@ -146,7 +146,7 @@ $(document).ready(function($){
 
         deleteMod+='<div class="modal-footer justify-content-center">'
         deleteMod+='<button type="submit" class="btn btn-danger btn-rounded">Si, Estoy Seguro!</button>'
-        deleteMod+='<button type="button" class="btn btn-warning btn-rounded">No</button>'
+        deleteMod+='<button type="button" class="btn btn-warning btn-rounded" onClick="window.location.reload();">No</button>'
         //deleteMod+='<a type="button" class="btn btn-danger">Si!Estoy seguro.<i class="far fa-gem ml-1 white-text"></i></a>'
         //deleteMod+='<a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No</a>'
         deleteMod+='</div>'
