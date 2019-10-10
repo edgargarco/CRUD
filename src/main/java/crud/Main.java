@@ -51,15 +51,20 @@ public class Main {
 
             User user = new User(request.queryParams("usuario"),request.queryParams("password"));
             if(user.getEmail().equals("edgar@hotmail.com") && user.getPassword().equals("123") || user.getEmail().equals("pepe@hotmail.com") && user.getPassword().equals("123")){
-                user.setUser("Edgar Garcia");
+                if(user.getEmail().equals("edgar@hotmail.com")){
+                    user.setUser("Edgar Garcia");
+                }else if(user.getEmail().equals("pepe@hotmail.com")){
+                    user.setUser("Pepe el destripador");
+                }
+
                 Session session = request.session(true);
 
                 session.attribute("user",user);
-                Student x = new Student("20161143", "Edgar","Garcia","8293819028");
-                insertStudent(x);
+               // Student x = new Student("20161143", "Edgar","Garcia","8293819028");
+                //insertStudent(x);
 
                 values.put("student",list_Student);
-                System.out.println(list_Student.get(0).getName());
+                //System.out.println(list_Student.get(0).getName());
 
                 reponse.redirect("/");
             }else{

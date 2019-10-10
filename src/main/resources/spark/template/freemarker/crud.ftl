@@ -34,7 +34,7 @@
 <head>
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color lighten-1">
-        <a class="navbar-brand" href="#"><i class="fab fa-accusoft"></i></a>
+        <a class="navbar-brand" href="#"><i class="fab fa-accusoft"></i> CRUD</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
                 aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -71,7 +71,7 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <i class="fas fa-id-badge prefix"></i>
-                    <input type="text" id="id_student" name="id_student" class="form-control" placeholder="Matricula:" >
+                    <input type="number" id="id_student" name="id_student" class="form-control" placeholder="Matricula:" >
                     <span class="error" style="color: red; display: none">* Solo digitos del (0 - 9)</span>
 
                 </div>
@@ -102,7 +102,7 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <i class="fas fa-phone prefix"></i>
-                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Telefono:" required>
+                    <input type="number" id="phone" name="phone" class="form-control" placeholder="Telefono:" required>
                     <span class="error" style="color: red; display: none">* Solo digitos del (0 - 9)</span>
 
                 </div>

@@ -21,15 +21,15 @@ $(document).ready(function($){
         var col5 = curRow.find('td:eq(4)').text();
         array.push(col5);
         var result = col1+ '\n'+col2+ '\n'+col3+ '\n'+col4+ '\n'+col5;
-        console.log(array);
-        alert(array);
+       // console.log(array);
+        //alert(array);
         loadModal(array);
 
 
 
 
     });
-    console.log(array);
+    //console.log(array);
 
 
     var modal = '';
@@ -61,7 +61,7 @@ $(document).ready(function($){
 
         modal += '<div class="md-form mb-2">'
         modal += '<i class="fas fa-id prefix grey-text"></i>'
-        modal += '<input type="name" id="defaultForm-email" class="form-control validate" value="'+array[1]+'" name="student_id">'
+        modal += '<input type="number" id="defaultForm-email" class="form-control validate" value="'+array[1]+'" name="student_id">'
 
         modal += '</div>'
 
@@ -80,7 +80,7 @@ $(document).ready(function($){
 
         modal += '<div class="md-form mb-2">'
         modal += '<i class="fas fa-phone prefix grey-text"></i>'
-        modal += '<input type="name" id="defaultForm-email" class="form-control validate" value="'+array[4]+'" name="tel">'
+        modal += '<input type="number" id="defaultForm-email" class="form-control validate" value="'+array[4]+'" name="tel">'
 
         modal += '</div>'
 
@@ -109,8 +109,8 @@ $(document).ready(function($){
         var col5 = curRow.find('td:eq(4)').text();
         darray.push(col5);
         var result = col1+ '\n'+col2+ '\n'+col3+ '\n'+col4+ '\n';
-        console.log(darray);
-        alert(darray);
+        //console.log(darray);
+        //alert(darray);
         loadModalDelete(darray);
 
     });
