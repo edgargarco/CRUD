@@ -34,7 +34,7 @@
 <head>
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color lighten-1">
-        <a class="navbar-brand" href="#"><i class="fab fa-accusoft"></i>CRUD</a>
+        <a class="navbar-brand" href="#"><i class="fab fa-accusoft"></i> CRUD</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
                 aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
 }
 
 group 'Practica#2'
@@ -11,6 +12,11 @@ mainClassName = "crud.Main"
 
 repositories {
     mavenCentral()
+}
+shadowJar {
+    baseName = 'CRUD'
+    classifier = null
+    version = null
 }
 
 dependencies {
@@ -23,3 +29,8 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
 }
+task stage {
+    dependsOn shadowJar
+}
+
+
